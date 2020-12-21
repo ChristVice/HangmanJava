@@ -22,42 +22,6 @@ public class Hangman {
 	
 	public static ArrayList<String> words = new ArrayList<String>();
 
-	public static void main(String[] args) throws FileNotFoundException {
-		GetWords();
-		
-		Scanner usr = new Scanner(System.in);
-		System.out.println("   |----+"+
-						 "\n   |    |"+
-				 		 "\n   |    0"+
-						 "\n   |   /|\\"+
-				 		 "\n   |    |"+
-						 "\n   |   / \\"+
-				 		 "\n   |"+
-						 "\n----------");
-		
-		System.out.println("***WELCOME TO HANGMAN***");
-		
-		while(true) {
-			System.out.println("\n1.Start a new game");
-			System.out.println("2.Quit");
-			
-			int usrInput = usr.nextInt();
-			
-			if(usrInput == 1) {
-				StartGame();
-			}
-			else if(usrInput == 2) {
-				System.out.println("Goodbye!!");
-				break;
-			}
-			else {
-				System.out.println("Invalid input");
-			}
-			
-		}
-		
-	}
-	
 	//Start the game
 	public static void StartGame() {
 		Scanner game = new Scanner(System.in);
@@ -100,6 +64,7 @@ public class Hangman {
 			
 			System.out.println();
 			if(errors == draw.length) {
+				System.out.println("You loose!!");
 				System.out.println("Word :: "+word+"\nGame Over");
 				solved = true;
 			}
@@ -169,9 +134,5 @@ public class Hangman {
 	public static String GetRandomWrd() {
 		return words.get( (int)(Math.random()*words.size()) );
 	}
-//	
-//	public static <T> void test(T input) {
-//		System.out.println(input);
-//	}
-//	
+	
 }
